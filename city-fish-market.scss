@@ -1,0 +1,303 @@
+/* Variables */
+
+$cf-color-1: #12588e;
+$cf-color-2: #fff600;
+$cf-color-3: #dfeefa;
+
+/* Mixins */
+
+@mixin xl-screen {
+    @media (min-width: 1280px) { @content; }
+}
+
+@mixin lg-screen {
+    @media (min-width: 992px) { @content; }
+}
+
+@mixin md-screen {
+    @media (min-width: 768px) { @content; }
+}
+
+@mixin sm-screen{
+    @media (min-width: 576px) { @content; }
+}
+
+/* Imports */
+
+@import '../../src/scss/extra/additional-styles';
+
+*{
+    box-sizing: border-box;
+}
+
+h1, h2{
+    font-family: 'nimbus-sans-condensed';
+}
+h1{
+    font-size: 4rem;
+    line-height: .8em;
+    color: #fff;
+    text-shadow: 5px 5px 0px $cf-color-1;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    font-weight: 900;
+    @include lg-screen{
+        font-size: 7rem;
+    }
+}
+h2{
+    color: #000;
+    font-size: 2.1rem;
+    letter-spacing: 0pc;
+    @include lg-screen{
+        font-size: 3.2rem;
+    }
+}
+
+a{
+    text-decoration: none;
+}
+
+@include lg-screen{
+    .col-lg-four-fifth{
+        flex: 0 0 80%;
+        max-width: 80%;
+    }
+}
+
+.cf-yellow-txt{
+    color: $cf-color-2;
+}
+
+.cf-blue-bg{
+    background-color: $cf-color-1;
+}
+.cf-yellow-bg{
+    background-color: $cf-color-2;
+}
+
+.size-full-width-img{
+    width: 100%;
+    height: auto;
+}
+
+.size-party-space-img{
+    max-height: 150px;
+    width: auto;
+}
+
+.white-bg{
+    background-color: #fff;
+}
+
+.hero{
+    min-height: auto;
+    min-height: 50vh;
+    margin-top: 59px;
+    @include lg-screen{
+        height: 80vh;
+        margin-top: 0pc;
+    }
+}
+
+.unstyled-list{
+    margin: 0;
+    padding: 0;
+}
+.acf-map {
+    width: 100%;
+    height: 300px;
+    border: #ccc solid 1px;
+    @include lg-screen{
+        height: 800px;
+    }
+}
+
+// Fixes potential theme css conflict.
+.acf-map img {
+   max-width: inherit !important;
+}
+
+.full-bg{
+    background-size: cover;
+}
+
+#page-city-fish-market{
+    font-family: 'nimbus-sans', sans-serif;
+    
+    #cf-burger-nav {
+        width: 30px;
+        height: 20px;
+        position: relative;
+        transform: rotate(0deg);
+        transition: .5s ease-in-out;
+        cursor: pointer;
+        z-index: 999;
+        @include lg-screen{
+            display: none;
+        }
+        span{
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background-color: $cf-color-1;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+    }
+    
+    #cf-burger-nav span:nth-child(1) {
+        top: 0px;
+    }
+    
+    #cf-burger-nav span:nth-child(2),#cf-burger-nav span:nth-child(3) {
+        top: 10px;
+    }
+    
+    #cf-burger-nav span:nth-child(4) {
+        top: 20px;
+    }
+    
+    #cf-burger-nav.open span:nth-child(1) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+    }
+    
+    #cf-burger-nav.open span:nth-child(2) {
+        transform: rotate(45deg);
+    }
+    
+    #cf-burger-nav.open span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+    
+    #cf-burger-nav.open span:nth-child(4) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+    }
+    .cf-light-blue-bg{
+        background-color: $cf-color-3;
+    }
+    .blue{
+        color: $cf-color-1 !important;
+    }
+    .yellow-bg{
+        background-color: $cf-color-2;
+    }
+    .cf-mobile-nav-wrap{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        background-color: #fff;
+        z-index: 999;
+        @include lg-screen{
+            display: none;
+        }
+        .cf-mobile-nav{
+            display: none;
+            a{
+                font-size: .75rem;
+                display: block;
+                border-bottom: 1px solid rgba(255,255,255,0.5);
+                font-family: 'nimbus-sans-condensed';
+                &.active{
+                    background-color: #fff;
+                    color: $cf-color-1 !important;
+                }
+            }
+        }
+    }
+    .cf-menu-wrap{
+        display: none;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        height: 100vh;
+        width: 20%;
+        z-index: 9;
+        @include lg-screen{
+            display: block;
+        }
+        .cf-menu{
+            a{
+                font-size: .75rem;
+                display: block;
+                border-bottom: 1px solid rgba(255,255,255,0.5);
+                font-family: 'nimbus-sans-condensed';
+                &:hover{
+                    background-color: #fff;
+                    color: $cf-color-1 !important;
+                }
+                &.active{
+                    background-color: #fff;
+                    color: $cf-color-1 !important;
+                }
+            }
+        }
+    }
+    .site-wrap{
+        left: 0px;
+        overflow: hidden;
+        @include lg-screen{
+            left: 20%;
+        }
+        .cf-featured{
+            width: 100%;
+            position: absolute;
+            right: 0px; 
+            bottom: 0px;
+            background-color: rgba(0,0,0,0.7);
+            border-bottom: 10px solid $cf-color-2;
+            @include lg-screen{
+                width: auto;
+                bottom: 50px;
+            }
+            p{
+                line-height: 1em;
+            }
+        }
+        #about p{
+            margin-bottom: 0px;
+        }
+        .cf-divider{
+            width: 100px;
+            height: 3px;
+            background-color: $cf-color-1;
+        }
+        .cf-divider-yellow{
+            width: 100px;
+            height: 3px;
+            background-color: $cf-color-2;
+        }
+        .awards{
+            text-align: center;
+            @include lg-screen{
+                text-align: right;
+            }
+        }
+        .open-quote{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        .close-quote{
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+        }
+        .hours-bg{
+            height: 250px;
+        }
+        .hours{
+            background-color: rgba(0,0,0,0.7);
+            border-bottom: 10px solid $cf-color-2;
+        }
+    }
+}
